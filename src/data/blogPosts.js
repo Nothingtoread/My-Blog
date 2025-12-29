@@ -589,7 +589,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));</code></pre>
       
       <p><strong>JavaScript không yếu kém - chỉ có lập trình viên yếu kém trong việc sử dụng nó!</strong></p>
     `,
-    image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c8db35?w=800&h=400&fit=crop",
+    image: "/images/javascript-blog.jpg",
     date: "2024-12-20",
     category: "JavaScript"
   },
