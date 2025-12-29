@@ -45,9 +45,9 @@ function Resume() {
                         Tóm tắt
                     </h2>
                     <p className="summary-text">
-                        Sinh viên năm cuối chuyên ngành Công nghệ Thông tin tại Đại học Công nghệ TP.HCM (HUTECH).
-                        Đam mê phát triển phần mềm với kinh nghiệm thực tế về JavaScript và .NET. Có kiến thức nền tảng
-                        về Cloud Computing và AWS. Luôn tìm kiếm cơ hội để học hỏi và phát triển kỹ năng lập trình.
+                        Sinh viên năm cuối CNTT tại HUTECH, định hướng Intern Backend/Fullstack. Có kinh nghiệm xây dựng
+                        ứng dụng web với JavaScript, .NET và REST API thông qua dự án học tập và cá nhân. Nền tảng Cloud
+                        AWS (EC2, S3, RDS), mong muốn học hỏi trong môi trường thực tế.
                     </p>
                 </section>
 
@@ -92,13 +92,13 @@ function Resume() {
                             <div className="skill-item expert">
                                 <div className="skill-name">JavaScript</div>
                                 <div className="skill-level">
-                                    <div className="skill-bar" style={{ width: '90%' }}></div>
+                                    <div className="skill-bar" style={{ width: '65%' }}></div>
                                 </div>
                             </div>
                             <div className="skill-item expert">
                                 <div className="skill-name">.NET (C#)</div>
                                 <div className="skill-level">
-                                    <div className="skill-bar" style={{ width: '90%' }}></div>
+                                    <div className="skill-bar" style={{ width: '65%' }}></div>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ function Resume() {
                         <h3 className="skills-category-title">Frontend Development</h3>
                         <div className="skills-tags">
                             <span className="skill-tag">React</span>
-                            <span className="skill-tag">HTML5</span>
+                            <span className="skill-tag">Vue</span>
                             <span className="skill-tag">CSS3</span>
                             <span className="skill-tag">Responsive Design</span>
                             <span className="skill-tag">ES6+</span>
@@ -129,7 +129,6 @@ function Resume() {
                         <h3 className="skills-category-title">Cloud & DevOps</h3>
                         <div className="skills-tags">
                             <span className="skill-tag">AWS (EC2, S3, RDS)</span>
-                            <span className="skill-tag">Cloud Computing</span>
                             <span className="skill-tag">Git/GitHub</span>
                             <span className="skill-tag">Docker (Basic)</span>
                         </div>

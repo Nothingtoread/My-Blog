@@ -101,15 +101,11 @@ function Home() {
           </div>
           <div className="profile-content">
             <h1>Xin chào, tôi là Lê Thành Nhơn</h1>
-            <p className="profile-title">Lập trình viên JavaScript & Java</p>
             <div className="profile-description">
               <p>
                 Tôi là một lập trình viên đam mê với công nghệ web, đặc biệt là JavaScript và Java.
                 Blog này là nơi tôi chia sẻ những kiến thức và kinh nghiệm mà tôi đã tích lũy được
                 trong quá trình học tập và làm việc.
-              </p>
-              <p className="profile-quote">
-                <em>"Không phải ai cũng thắng ngay từ đầu, nhưng kẻ lỳ đòn nhất thường là người về đích."</em>
               </p>
               <p>
                 Tại đây, bạn sẽ tìm thấy các bài viết về:
@@ -121,6 +117,9 @@ function Home() {
                 <li>Java và các best practices</li>
                 <li>Và nhiều chủ đề thú vị khác về lập trình</li>
               </ul>
+              <p className="profile-quote">
+                <em>"Không phải ai cũng thắng ngay từ đầu, nhưng kẻ lỳ đòn nhất thường là người về đích."</em>
+              </p>
             </div>
             <div className="profile-skills">
               <h3>Kỹ năng</h3>
