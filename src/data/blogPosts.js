@@ -1,925 +1,1053 @@
-// Dữ liệu bài viết về JavaScript
+// Dữ liệu bài viết blog
 export const blogPosts = [
   {
     id: 1,
-    title: "Giới thiệu về JavaScript ES6 và các tính năng mới",
-    excerpt: "ES6 (ECMAScript 2015) đã mang đến nhiều tính năng mạnh mẽ như arrow functions, destructuring, template literals và nhiều hơn nữa...",
+    title: "Tầm quan trọng của OOP, cánh cửa để làm quen với lập trình",
+    excerpt: "Lập trình hướng đối tượng (OOP) không chỉ là một phương pháp lập trình, mà còn là cánh cửa quan trọng giúp người mới bắt đầu tiếp cận với thế giới lập trình một cách có hệ thống...",
     content: `
-      <h2>Giới thiệu về JavaScript ES6</h2>
-      <p>ES6 (ECMAScript 2015) là một bước ngoặt lớn trong lịch sử phát triển của JavaScript. Nó đã mang đến nhiều tính năng mới giúp viết code dễ dàng và hiệu quả hơn.</p>
+      <h2>Tầm quan trọng của OOP, cánh cửa để làm quen với lập trình</h2>
       
-      <h3>1. Arrow Functions</h3>
-      <p>Arrow functions cung cấp cú pháp ngắn gọn hơn cho việc viết hàm:</p>
-      <pre><code>// Cách cũ
-const add = function(a, b) {
-  return a + b;
-};
-
-// ES6
-const add = (a, b) => a + b;</code></pre>
+      <h3>Giới thiệu</h3>
+      <p>Khi bắt đầu học lập trình, nhiều người thường gặp khó khăn trong việc tổ chức code và hiểu cách các phần khác nhau của chương trình tương tác với nhau. Lập trình hướng đối tượng (Object-Oriented Programming - OOP) không chỉ đơn thuần là một phương pháp lập trình, mà còn là một cách tư duy giúp chúng ta mô hình hóa thế giới thực vào trong code.</p>
       
-      <h3>2. Destructuring</h3>
-      <p>Destructuring cho phép bạn trích xuất dữ liệu từ arrays hoặc objects một cách dễ dàng:</p>
-      <pre><code>const person = { name: 'John', age: 30 };
-const { name, age } = person;
-
-const numbers = [1, 2, 3];
-const [first, second] = numbers;</code></pre>
+      <h3>Tại sao OOP lại quan trọng cho người mới bắt đầu?</h3>
       
-      <h3>3. Template Literals</h3>
-      <p>Template literals cho phép bạn tạo chuỗi với biến một cách dễ dàng:</p>
-      <pre><code>const name = 'John';
-const message = \`Xin chào, tôi là \${name}\`;</code></pre>
+      <h4>1. Tư duy có cấu trúc</h4>
+      <p>OOP giúp bạn phát triển khả năng tư duy có hệ thống. Thay vì viết code theo kiểu "từng bước một" (procedural), bạn học cách nhìn nhận vấn đề dưới dạng các đối tượng và mối quan hệ giữa chúng. Điều này rất quan trọng khi bạn phát triển các ứng dụng phức tạp.</p>
       
-      <h3>4. Let và Const</h3>
-      <p>ES6 giới thiệu <code>let</code> và <code>const</code> để thay thế <code>var</code>, giúp quản lý scope tốt hơn:</p>
-      <pre><code>let x = 10; // Có thể thay đổi
-const y = 20; // Không thể thay đổi</code></pre>
-      
-      <h3>5. Classes</h3>
-      <p>ES6 đã thêm cú pháp class để làm việc với OOP dễ dàng hơn:</p>
-      <pre><code>class Person {
-  constructor(name) {
+      <pre><code>// Ví dụ: Mô hình hóa một sinh viên
+class Student {
+  constructor(name, studentId, courses) {
     this.name = name;
+    this.studentId = studentId;
+    this.courses = courses;
   }
   
-  greet() {
-    return \`Xin chào, tôi là \${this.name}\`;
+  enrollCourse(course) {
+    this.courses.push(course);
+    console.log(\`\${this.name} đã đăng ký khóa học \${course}\`);
   }
-}</code></pre>
+  
+  getInfo() {
+    return \`Sinh viên: \${this.name} (ID: \${this.studentId})\`;
+  }
+}
+
+// Sử dụng
+const student1 = new Student("Nguyễn Văn A", "SV001", ["Toán", "Lý"]);
+student1.enrollCourse("Hóa");
+console.log(student1.getInfo());</code></pre>
       
-      <p>ES6 đã cách mạng hóa cách chúng ta viết JavaScript, làm cho code trở nên sạch sẽ và dễ đọc hơn nhiều.</p>
+      <h4>2. Dễ dàng bảo trì và mở rộng</h4>
+      <p>Khi code được tổ chức theo các class và object, việc sửa đổi và thêm tính năng trở nên dễ dàng hơn rất nhiều. Bạn biết chính xác phần nào cần sửa mà không ảnh hưởng đến toàn bộ chương trình.</p>
+      
+      <h4>3. Tái sử dụng code hiệu quả</h4>
+      <p>Với OOP, bạn có thể tạo ra các class tổng quát và tái sử dụng chúng trong nhiều dự án khác nhau. Điều này tiết kiệm thời gian và giảm thiểu lỗi.</p>
+      
+      <h3>Bốn trụ cột của OOP</h3>
+      
+      <h4>1. Encapsulation (Đóng gói)</h4>
+      <p>Encapsulation là việc gói dữ liệu (thuộc tính) và phương thức (hành vi) thao tác trên dữ liệu đó vào trong một đơn vị duy nhất là class. Điều này giúp bảo vệ dữ liệu khỏi bị truy cập trực tiếp từ bên ngoài.</p>
+      
+      <pre><code>class BankAccount {
+  #balance; // Private field trong JavaScript modern
+  
+  constructor(initialBalance) {
+    this.#balance = initialBalance;
+  }
+  
+  deposit(amount) {
+    if (amount > 0) {
+      this.#balance += amount;
+      return true;
+    }
+    return false;
+  }
+  
+  withdraw(amount) {
+    if (amount > 0 && amount <= this.#balance) {
+      this.#balance -= amount;
+      return true;
+    }
+    return false;
+  }
+  
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount(1000);
+account.deposit(500);
+console.log(account.getBalance()); // 1500
+// account.#balance; // Error: Private field</code></pre>
+      
+      <h4>2. Inheritance (Kế thừa)</h4>
+      <p>Kế thừa cho phép một class mới (class con) kế thừa các thuộc tính và phương thức từ một class đã có (class cha). Điều này giúp giảm code trùng lặp và tạo ra cấu trúc phân cấp rõ ràng.</p>
+      
+      <pre><code>class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  introduce() {
+    return \`Xin chào, tôi là \${this.name}, \${this.age} tuổi\`;
+  }
+}
+
+class Employee extends Person {
+  constructor(name, age, position, salary) {
+    super(name, age); // Gọi constructor của class cha
+    this.position = position;
+    this.salary = salary;
+  }
+  
+  introduce() {
+    return \`\${super.introduce()}, làm \${this.position}\`;
+  }
+  
+  getAnnualSalary() {
+    return this.salary * 12;
+  }
+}
+
+const emp = new Employee("Trần Văn B", 28, "Developer", 20000000);
+console.log(emp.introduce());
+console.log(\`Lương năm: \${emp.getAnnualSalary()}\`);</code></pre>
+      
+      <h4>3. Polymorphism (Đa hình)</h4>
+      <p>Đa hình cho phép các object khác nhau có thể được xử lý thông qua cùng một interface, nhưng thực hiện theo cách riêng của chúng. Điều này tạo ra sự linh hoạt cao trong thiết kế.</p>
+      
+      <pre><code>class Shape {
+  calculateArea() {
+    throw new Error("Method must be implemented");
+  }
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+  
+  calculateArea() {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(width, height) {
+    super();
+    this.width = width;
+    this.height = height;
+  }
+  
+  calculateArea() {
+    return this.width * this.height;
+  }
+}
+
+// Polymorphism trong thực tế
+const shapes = [
+  new Circle(5),
+  new Rectangle(4, 6),
+  new Circle(3)
+];
+
+shapes.forEach(shape => {
+  console.log(\`Diện tích: \${shape.calculateArea()}\`);
+});</code></pre>
+      
+      <h4>4. Abstraction (Trừu tượng hóa)</h4>
+      <p>Abstraction là việc ẩn đi các chi tiết phức tạp và chỉ hiển thị những gì cần thiết cho người dùng. Điều này giúp giảm độ phức tạp và tăng tính dễ sử dụng.</p>
+      
+      <pre><code>class CoffeeMachine {
+  #waterAmount = 0;
+  #temperature = 0;
+  
+  // Public interface - đơn giản và dễ sử dụng
+  makeCoffee(type) {
+    this.#boilWater();
+    this.#grindBeans();
+    this.#brew(type);
+    return "Cà phê của bạn đã sẵn sàng!";
+  }
+  
+  // Private methods - chi tiết phức tạp được ẩn đi
+  #boilWater() {
+    this.#temperature = 95;
+    console.log("Đang đun nước...");
+  }
+  
+  #grindBeans() {
+    console.log("Đang xay hạt cà phê...");
+  }
+  
+  #brew(type) {
+    console.log(\`Đang pha \${type}...\`);
+  }
+}
+
+const machine = new CoffeeMachine();
+console.log(machine.makeCoffee("Espresso"));
+// Người dùng không cần biết chi tiết bên trong</code></pre>
+      
+      <h3>Ứng dụng thực tế của OOP</h3>
+      
+      <h4>1. Phát triển Game</h4>
+      <p>OOP là nền tảng cho hầu hết các game hiện đại. Mỗi nhân vật, vật phẩm, địch thủ đều là các object với thuộc tính và hành vi riêng.</p>
+      
+      <pre><code>class Character {
+  constructor(name, health, attack) {
+    this.name = name;
+    this.health = health;
+    this.attack = attack;
+  }
+  
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 0) {
+      console.log(\`\${this.name} đã bị đánh bại!\`);
+    }
+  }
+  
+  attackTarget(target) {
+    console.log(\`\${this.name} tấn công \${target.name}!\`);
+    target.takeDamage(this.attack);
+  }
+}
+
+class Warrior extends Character {
+  constructor(name, health, attack, armor) {
+    super(name, health, attack);
+    this.armor = armor;
+  }
+  
+  takeDamage(damage) {
+    const actualDamage = Math.max(0, damage - this.armor);
+    super.takeDamage(actualDamage);
+  }
+}
+
+const hero = new Warrior("Chiến binh", 100, 20, 5);
+const enemy = new Character("Quái vật", 50, 15);
+hero.attackTarget(enemy);</code></pre>
+      
+      <h4>2. Xây dựng Web Applications</h4>
+      <p>Các framework như React, Angular, Vue đều sử dụng khái niệm OOP để tổ chức components và quản lý state.</p>
+      
+      <h4>3. Hệ thống quản lý</h4>
+      <p>Các hệ thống quản lý học sinh, nhân viên, kho hàng... đều được xây dựng dựa trên OOP vì tính tự nhiên trong việc mô hình hóa thực thể.</p>
+      
+      <h3>Lời khuyên cho người mới bắt đầu</h3>
+      
+      <ol>
+        <li><strong>Bắt đầu từ những ví dụ đơn giản:</strong> Đừng cố gắng học tất cả cùng một lúc. Hãy bắt đầu với việc tạo các class đơn giản như Student, Book, Car...</li>
+        
+        <li><strong>Thực hành thường xuyên:</strong> Hãy thử mô hình hóa các đối tượng xung quanh bạn thành code. Ví dụ: mô hình hóa điện thoại của bạn, chiếc xe, ngôi nhà...</li>
+        
+        <li><strong>Đọc code của người khác:</strong> Xem cách các lập trình viên khác sử dụng OOP trong các dự án open source trên GitHub.</li>
+        
+        <li><strong>Áp dụng vào dự án thực tế:</strong> Hãy tạo một dự án nhỏ như ứng dụng quản lý công việc, game đơn giản, hoặc hệ thống quản lý thư viện.</li>
+        
+        <li><strong>Đừng quá lạm dụng:</strong> OOP là công cụ mạnh mẽ nhưng không phải lúc nào cũng cần thiết. Học cách nhận biết khi nào nên dùng OOP và khi nào nên dùng cách tiếp cận khác.</li>
+      </ol>
+      
+      <h3>Kết luận</h3>
+      <p>OOP không chỉ là một kỹ thuật lập trình, mà còn là một cách tư duy giúp bạn giải quyết vấn đề một cách có hệ thống. Nó là nền tảng quan trọng cho bất kỳ lập trình viên nào muốn phát triển sự nghiệp trong ngành công nghệ phần mềm.</p>
+      
+      <p>Khi bạn nắm vững OOP, bạn sẽ thấy rằng việc học các ngôn ngữ lập trình mới, framework mới, hoặc giải quyết các vấn đề phức tạp trở nên dễ dàng hơn rất nhiều. OOP thực sự là cánh cửa mở ra thế giới lập trình chuyên nghiệp!</p>
     `,
-    image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c8db35?w=800&h=400&fit=crop",
-    date: "2024-01-15",
-    category: "JavaScript"
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    date: "2024-12-15",
+    category: "Programming Fundamentals"
   },
   {
     id: 2,
-    title: "Async/Await trong JavaScript: Cách xử lý bất đồng bộ hiện đại",
-    excerpt: "Async/await là cách hiện đại để xử lý các thao tác bất đồng bộ trong JavaScript, giúp code dễ đọc và dễ debug hơn...",
+    title: "Javascript, lỗi thời hay yếu kém từ bản thân?",
+    excerpt: "JavaScript thường bị chê là ngôn ngữ lỗi thời, yếu kém. Nhưng liệu đó có phải là sự thật, hay chỉ là do chúng ta chưa hiểu và sử dụng đúng cách...",
     content: `
-      <h2>Async/Await trong JavaScript</h2>
-      <p>Async/await là một tính năng mạnh mẽ được giới thiệu trong ES2017, giúp viết code bất đồng bộ một cách đồng bộ và dễ đọc hơn.</p>
+      <h2>Javascript, lỗi thời hay yếu kém từ bản thân?</h2>
       
-      <h3>Vấn đề với Promises</h3>
-      <p>Trước khi có async/await, chúng ta phải sử dụng Promises với .then() và .catch():</p>
-      <pre><code>fetch('/api/data')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });</code></pre>
+      <h3>Giới thiệu</h3>
+      <p>Trong cộng đồng lập trình viên, JavaScript thường nhận được những đánh giá trái chiều. Nhiều người cho rằng nó là ngôn ngữ lỗi thời, thiết kế tồi, đầy rẫy các quirks và pitfalls. Nhưng liệu những đánh giá này có công bằng? Hay vấn đề nằm ở cách chúng ta tiếp cận và sử dụng JavaScript?</p>
       
-      <h3>Giải pháp với Async/Await</h3>
-      <p>Với async/await, code trở nên dễ đọc hơn nhiều:</p>
-      <pre><code>async function fetchData() {
-  try {
-    const response = await fetch('/api/data');
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
+      <h3>Những lời chỉ trích phổ biến về JavaScript</h3>
+      
+      <h4>1. "JavaScript có quá nhiều cách để làm một việc"</h4>
+      <p>Đây là một lời chỉ trích phổ biến. Thực tế, sự linh hoạt này vừa là điểm mạnh vừa là điểm yếu của JavaScript:</p>
+      
+      <pre><code>// Có nhiều cách để tạo function
+function traditional() { return "traditional"; }
+const arrow = () => "arrow";
+const functionExpression = function() { return "expression"; };
+
+// Nhiều cách để tạo object
+const obj1 = new Object();
+const obj2 = {};
+const obj3 = Object.create(null);</code></pre>
+      
+      <p><strong>Sự thật:</strong> Mỗi cách có mục đích riêng. Arrow functions không có <code>this</code> binding riêng, phù hợp cho callbacks. Traditional functions có <code>this</code> động, phù hợp cho methods. Hiểu rõ sự khác biệt này là dấu hiệu của một lập trình viên giỏi.</p>
+      
+      <h4>2. "Type coercion gây khó hiểu"</h4>
+      <p>JavaScript có type coercion tự động, điều này đôi khi gây ra kết quả bất ngờ:</p>
+      
+      <pre><code>console.log("5" + 3);     // "53" - string concatenation
+console.log("5" - 3);     // 2 - numeric subtraction
+console.log([] + []);     // "" - empty string
+console.log([] + {});     // "[object Object]"
+console.log({} + []);     // 0 (trong một số trường hợp)</code></pre>
+      
+      <p><strong>Giải pháp:</strong> Sử dụng TypeScript hoặc strict comparison:</p>
+      
+      <pre><code>// Bad
+if (value == "5") { }
+
+// Good
+if (value === "5") { }
+
+// With TypeScript
+function add(a: number, b: number): number {
+  return a + b;
 }</code></pre>
       
-      <h3>Xử lý nhiều Promise song song</h3>
-      <p>Bạn có thể chạy nhiều Promise song song với Promise.all():</p>
-      <pre><code>async function fetchMultipleData() {
+      <h4>3. "JavaScript chậm"</h4>
+      <p>Nhiều người nghĩ JavaScript chậm so với các ngôn ngữ compiled.</p>
+      
+      <p><strong>Sự thật:</strong> Modern JavaScript engines như V8 (Chrome, Node.js), SpiderMonkey (Firefox) đã cực kỳ tối ưu. Với JIT compilation, JavaScript có thể đạt hiệu suất gần bằng C++ trong nhiều trường hợp.</p>
+      
+      <pre><code>// V8 tối ưu hóa code này rất tốt
+function sum(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+  return total;
+}
+
+// Benchmark: Xử lý 1 triệu phần tử chỉ mất vài ms</code></pre>
+      
+      <h3>Sức mạnh thực sự của JavaScript hiện đại</h3>
+      
+      <h4>1. Hệ sinh thái phong phú nhất</h4>
+      <p>NPM có hơn 2 triệu packages - nhiều hơn bất kỳ ngôn ngữ nào khác. Bạn có thể tìm thấy library cho hầu hết mọi nhu cầu:</p>
+      
+      <pre><code>// Machine Learning
+import * as tf from '@tensorflow/tfjs';
+
+// Data Visualization
+import { Chart } from 'chart.js';
+
+// Backend Development
+import express from 'express';
+
+// Mobile Apps
+import React from 'react-native';
+
+// Desktop Apps
+import { app } from 'electron';</code></pre>
+      
+      <h4>2. Async Programming xuất sắc</h4>
+      <p>JavaScript được thiết kế cho async từ đầu với Event Loop, Promises, và async/await:</p>
+      
+      <pre><code>// Xử lý nhiều API calls song song
+async function fetchUserData(userId) {
   try {
-    const [users, posts, comments] = await Promise.all([
-      fetch('/api/users').then(r => r.json()),
-      fetch('/api/posts').then(r => r.json()),
-      fetch('/api/comments').then(r => r.json())
+    const [user, posts, friends] = await Promise.all([
+      fetch(\`/api/users/\${userId}\`).then(r => r.json()),
+      fetch(\`/api/posts?userId=\${userId}\`).then(r => r.json()),
+      fetch(\`/api/friends?userId=\${userId}\`).then(r => r.json())
     ]);
     
-    return { users, posts, comments };
+    return { user, posts, friends };
   } catch (error) {
-    console.error('Lỗi khi tải dữ liệu:', error);
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+}
+
+// Error handling tinh tế
+async function robustFetch(url, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
+      return await response.json();
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+    }
   }
 }</code></pre>
       
-      <h3>Lợi ích của Async/Await</h3>
-      <ul>
-        <li>Code dễ đọc và dễ hiểu hơn</li>
-        <li>Xử lý lỗi đơn giản hơn với try/catch</li>
-        <li>Debugging dễ dàng hơn</li>
-        <li>Hỗ trợ tốt hơn cho các vòng lặp bất đồng bộ</li>
-      </ul>
+      <h4>3. Functional Programming mạnh mẽ</h4>
+      <p>JavaScript hỗ trợ functional programming rất tốt:</p>
       
-      <p>Async/await đã trở thành tiêu chuẩn cho việc xử lý bất đồng bộ trong JavaScript hiện đại.</p>
-    `,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
-    date: "2024-01-20",
-    category: "JavaScript"
-  },
-  {
-    id: 3,
-    title: "Closures trong JavaScript: Hiểu rõ và áp dụng",
-    excerpt: "Closures là một khái niệm quan trọng trong JavaScript giúp bạn hiểu cách hàm hoạt động và cách quản lý scope...",
-    content: `
-      <h2>Closures trong JavaScript</h2>
-      <p>Closure là một trong những khái niệm quan trọng nhất trong JavaScript. Nó cho phép một hàm truy cập các biến từ scope bên ngoài ngay cả sau khi hàm bên ngoài đã kết thúc.</p>
-      
-      <h3>Định nghĩa Closure</h3>
-      <p>Closure là sự kết hợp của một hàm và môi trường lexical mà hàm đó được khai báo. Môi trường này bao gồm tất cả các biến cục bộ có sẵn tại thời điểm closure được tạo.</p>
-      
-      <h3>Ví dụ cơ bản</h3>
-      <pre><code>function outerFunction(x) {
-  // Biến cục bộ của outerFunction
-  const outerVariable = x;
-  
-  // Hàm bên trong (inner function)
-  function innerFunction(y) {
-    console.log(outerVariable + y);
-  }
-  
-  return innerFunction;
-}
-
-const addFive = outerFunction(5);
-addFive(10); // Output: 15</code></pre>
-      
-      <h3>Ứng dụng thực tế</h3>
-      <p>Closures thường được sử dụng để tạo các hàm factory và module pattern:</p>
-      <pre><code>// Tạo hàm factory
-function createCounter() {
-  let count = 0;
-  
-  return {
-    increment: () => ++count,
-    decrement: () => --count,
-    getCount: () => count
-  };
-}
-
-const counter = createCounter();
-console.log(counter.increment()); // 1
-console.log(counter.increment()); // 2
-console.log(counter.getCount());  // 2</code></pre>
-      
-      <h3>Closures trong vòng lặp</h3>
-      <p>Một lỗi phổ biến khi làm việc với closures trong vòng lặp:</p>
-      <pre><code>// Vấn đề
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => {
-    console.log(i); // Output: 3, 3, 3
-  }, 1000);
-}
-
-// Giải pháp với let
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => {
-    console.log(i); // Output: 0, 1, 2
-  }, 1000);
-}</code></pre>
-      
-      <h3>Lợi ích của Closures</h3>
-      <ul>
-        <li>Data privacy và encapsulation</li>
-        <li>Tạo hàm factory</li>
-        <li>Currying và partial application</li>
-        <li>Event handlers và callbacks</li>
-      </ul>
-      
-      <p>Hiểu rõ closures sẽ giúp bạn viết code JavaScript tốt hơn và tránh được nhiều lỗi phổ biến.</p>
-    `,
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
-    date: "2024-01-25",
-    category: "JavaScript"
-  },
-  {
-    id: 4,
-    title: "Array Methods trong JavaScript: Map, Filter, Reduce",
-    excerpt: "Tìm hiểu về các phương thức mảng mạnh mẽ trong JavaScript như map, filter, reduce và cách sử dụng chúng hiệu quả...",
-    content: `
-      <h2>Array Methods trong JavaScript</h2>
-      <p>JavaScript cung cấp nhiều phương thức mảng mạnh mẽ giúp thao tác với dữ liệu một cách dễ dàng và hiệu quả.</p>
-      
-      <h3>1. Map - Biến đổi mảng</h3>
-      <p>Map tạo một mảng mới với kết quả của việc gọi hàm cho mỗi phần tử:</p>
-      <pre><code>const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(n => n * 2);
-// [2, 4, 6, 8, 10]
-
-const users = [
-  { name: 'John', age: 25 },
-  { name: 'Jane', age: 30 }
-];
-const names = users.map(user => user.name);
-// ['John', 'Jane']</code></pre>
-      
-      <h3>2. Filter - Lọc mảng</h3>
-      <p>Filter tạo một mảng mới với các phần tử thỏa mãn điều kiện:</p>
-      <pre><code>const numbers = [1, 2, 3, 4, 5, 6];
-const evens = numbers.filter(n => n % 2 === 0);
-// [2, 4, 6]
-
-const adults = users.filter(user => user.age >= 18);
-// Chỉ những user có age >= 18</code></pre>
-      
-      <h3>3. Reduce - Tổng hợp mảng</h3>
-      <p>Reduce thực thi một hàm reducer cho mỗi phần tử, trả về một giá trị duy nhất:</p>
-      <pre><code>const numbers = [1, 2, 3, 4, 5];
-const sum = numbers.reduce((acc, n) => acc + n, 0);
-// 15
-
-const grouped = users.reduce((acc, user) => {
-  const ageGroup = user.age >= 30 ? 'adult' : 'young';
-  if (!acc[ageGroup]) acc[ageGroup] = [];
-  acc[ageGroup].push(user);
-  return acc;
-}, {});</code></pre>
-      
-      <h3>4. Kết hợp các phương thức</h3>
-      <p>Bạn có thể kết hợp các phương thức để tạo pipeline xử lý dữ liệu:</p>
-      <pre><code>const result = numbers
-  .filter(n => n % 2 === 0)  // Lọc số chẵn
-  .map(n => n * 2)            // Nhân đôi
-  .reduce((acc, n) => acc + n, 0); // Tổng hợp
-// Kết quả: 24 (2*2 + 4*2 + 6*2)</code></pre>
-      
-      <h3>5. Các phương thức khác</h3>
-      <ul>
-        <li><strong>find()</strong>: Tìm phần tử đầu tiên thỏa mãn điều kiện</li>
-        <li><strong>some()</strong>: Kiểm tra xem có ít nhất một phần tử thỏa mãn</li>
-        <li><strong>every()</strong>: Kiểm tra xem tất cả phần tử có thỏa mãn</li>
-        <li><strong>forEach()</strong>: Thực thi hàm cho mỗi phần tử</li>
-      </ul>
-      
-      <p>Nắm vững các phương thức mảng này sẽ giúp bạn viết code JavaScript sạch sẽ và hiệu quả hơn.</p>
-    `,
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
-    date: "2024-02-01",
-    category: "JavaScript"
-  },
-  {
-    id: 5,
-    title: "Promises trong JavaScript: Từ cơ bản đến nâng cao",
-    excerpt: "Promises là cách hiện đại để xử lý các thao tác bất đồng bộ trong JavaScript. Tìm hiểu cách sử dụng chúng hiệu quả...",
-    content: `
-      <h2>Promises trong JavaScript</h2>
-      <p>Promise là một đối tượng đại diện cho giá trị có thể chưa có sẵn ngay bây giờ nhưng sẽ có trong tương lai. Nó giúp xử lý các thao tác bất đồng bộ một cách dễ dàng hơn.</p>
-      
-      <h3>Cấu trúc cơ bản của Promise</h3>
-      <pre><code>const promise = new Promise((resolve, reject) => {
-  // Thực hiện một thao tác bất đồng bộ
-  if (/* thành công */) {
-    resolve(value);
-  } else {
-    reject(error);
-  }
-});
-
-promise
-  .then(value => {
-    // Xử lý khi thành công
-  })
-  .catch(error => {
-    // Xử lý khi có lỗi
-  });</code></pre>
-      
-      <h3>Ví dụ thực tế</h3>
-      <pre><code>function fetchUserData(userId) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (userId) {
-        resolve({ id: userId, name: 'John Doe' });
-      } else {
-        reject(new Error('User ID không hợp lệ'));
-      }
-    }, 1000);
-  });
-}
-
-fetchUserData(123)
-  .then(user => {
-    console.log('User:', user);
-  })
-  .catch(error => {
-    console.error('Lỗi:', error);
-  });</code></pre>
-      
-      <h3>Promise.all() - Chạy song song</h3>
-      <p>Chạy nhiều Promise song song và đợi tất cả hoàn thành:</p>
-      <pre><code>const promise1 = fetch('/api/users');
-const promise2 = fetch('/api/posts');
-const promise3 = fetch('/api/comments');
-
-Promise.all([promise1, promise2, promise3])
-  .then(responses => {
-    // Tất cả đã hoàn thành
-    return Promise.all(responses.map(r => r.json()));
-  })
-  .then(data => {
-    console.log('Tất cả dữ liệu:', data);
-  })
-  .catch(error => {
-    // Nếu bất kỳ Promise nào thất bại
-    console.error('Lỗi:', error);
-  });</code></pre>
-      
-      <h3>Promise.race() - Lấy kết quả đầu tiên</h3>
-      <p>Trả về Promise đầu tiên hoàn thành (thành công hoặc thất bại):</p>
-      <pre><code>const promise1 = new Promise(resolve => setTimeout(() => resolve('Nhanh'), 100));
-const promise2 = new Promise(resolve => setTimeout(() => resolve('Chậm'), 500));
-
-Promise.race([promise1, promise2])
-  .then(result => {
-    console.log(result); // 'Nhanh'
-  });</code></pre>
-      
-      <h3>Promise.allSettled() - Đợi tất cả hoàn thành</h3>
-      <p>Đợi tất cả Promise hoàn thành, bất kể thành công hay thất bại:</p>
-      <pre><code>Promise.allSettled([promise1, promise2, promise3])
-  .then(results => {
-    results.forEach((result, index) => {
-      if (result.status === 'fulfilled') {
-        console.log(\`Promise \${index} thành công:\`, result.value);
-      } else {
-        console.log(\`Promise \${index} thất bại:\`, result.reason);
-      }
-    });
-  });</code></pre>
-      
-      <h3>Chuyển đổi Callback sang Promise</h3>
-      <pre><code>function promisify(fn) {
-  return function(...args) {
-    return new Promise((resolve, reject) => {
-      fn(...args, (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
-        }
-      });
-    });
-  };
-}</code></pre>
-      
-      <p>Promises là nền tảng cho async/await và là công cụ quan trọng trong JavaScript hiện đại.</p>
-    `,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-    date: "2024-02-05",
-    category: "JavaScript"
-  },
-  {
-    id: 6,
-    title: "Destructuring trong JavaScript: Phá vỡ cấu trúc dữ liệu",
-    excerpt: "Destructuring là một tính năng mạnh mẽ của ES6 cho phép bạn trích xuất dữ liệu từ arrays và objects một cách dễ dàng...",
-    content: `
-      <h2>Destructuring trong JavaScript</h2>
-      <p>Destructuring là một cú pháp cho phép bạn "phá vỡ" cấu trúc của arrays và objects để trích xuất các giá trị một cách dễ dàng.</p>
-      
-      <h3>Destructuring Objects</h3>
-      <pre><code>const person = {
-  name: 'John',
-  age: 30,
-  city: 'Hanoi'
-};
-
-// Cách cũ
-const name = person.name;
-const age = person.age;
-
-// Destructuring
-const { name, age } = person;
-console.log(name); // 'John'
-console.log(age);  // 30
-
-// Đổi tên biến
-const { name: fullName, age: years } = person;
-
-// Giá trị mặc định
-const { name, age, country = 'Vietnam' } = person;</code></pre>
-      
-      <h3>Destructuring Arrays</h3>
-      <pre><code>const numbers = [1, 2, 3, 4, 5];
-
-// Lấy phần tử đầu tiên
-const [first] = numbers;
-
-// Lấy nhiều phần tử
-const [first, second, third] = numbers;
-
-// Bỏ qua phần tử
-const [first, , third] = numbers; // Bỏ qua phần tử thứ 2
-
-// Rest operator
-const [first, ...rest] = numbers;
-// first = 1, rest = [2, 3, 4, 5]</code></pre>
-      
-      <h3>Destructuring trong Function Parameters</h3>
-      <pre><code>// Với objects
-function greet({ name, age }) {
-  return \`Xin chào, tôi là \${name}, \${age} tuổi\`;
-}
-
-greet({ name: 'John', age: 30 });
-
-// Với arrays
-function getFirstAndLast([first, ...rest]) {
-  const last = rest[rest.length - 1];
-  return { first, last };
-}
-
-getFirstAndLast([1, 2, 3, 4, 5]);</code></pre>
-      
-      <h3>Nested Destructuring</h3>
-      <pre><code>const user = {
-  name: 'John',
-  address: {
-    street: '123 Main St',
-    city: 'Hanoi',
-    country: 'Vietnam'
-  }
-};
-
-const {
-  name,
-  address: { city, country }
-} = user;
-
-console.log(city); // 'Hanoi'</code></pre>
-      
-      <h3>Destructuring với Default Values</h3>
-      <pre><code>const config = {
-  apiUrl: 'https://api.example.com'
-};
-
-const {
-  apiUrl,
-  timeout = 5000,
-  retries = 3
-} = config;</code></pre>
-      
-      <h3>Swap Variables</h3>
-      <pre><code>let a = 1;
-let b = 2;
-
-[a, b] = [b, a];
-// a = 2, b = 1</code></pre>
-      
-      <h3>Ứng dụng thực tế</h3>
-      <pre><code>// Với React props
-function UserCard({ name, email, avatar }) {
-  return (
-    <div>
-      <img src={avatar} alt={name} />
-      <h3>{name}</h3>
-      <p>{email}</p>
-    </div>
-  );
-}
-
-// Với API responses
-const { data: users, status, error } = await fetchUsers();
-
-// Với imports
-import { useState, useEffect } from 'react';</code></pre>
-      
-      <p>Destructuring giúp code JavaScript của bạn ngắn gọn và dễ đọc hơn rất nhiều!</p>
-    `,
-    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
-    date: "2024-02-10",
-    category: "JavaScript"
-  },
-  {
-    id: 7,
-    title: "Higher-Order Functions trong JavaScript",
-    excerpt: "Higher-order functions là những hàm nhận hàm khác làm tham số hoặc trả về một hàm. Tìm hiểu cách sử dụng chúng...",
-    content: `
-      <h2>Higher-Order Functions trong JavaScript</h2>
-      <p>Higher-order functions là những hàm có thể nhận hàm khác làm tham số hoặc trả về một hàm. Đây là một khái niệm quan trọng trong functional programming.</p>
-      
-      <h3>Định nghĩa</h3>
-      <p>Một hàm được gọi là higher-order function nếu:</p>
-      <ul>
-        <li>Nó nhận một hoặc nhiều hàm làm tham số, HOẶC</li>
-        <li>Nó trả về một hàm</li>
-      </ul>
-      
-      <h3>Ví dụ cơ bản</h3>
-      <pre><code>// Hàm nhận hàm làm tham số
-function operate(a, b, operation) {
-  return operation(a, b);
-}
-
-const add = (x, y) => x + y;
-const multiply = (x, y) => x * y;
-
-operate(5, 3, add);      // 8
-operate(5, 3, multiply); // 15</code></pre>
-      
-      <h3>Hàm trả về hàm</h3>
-      <pre><code>function createMultiplier(multiplier) {
-  return function(number) {
-    return number * multiplier;
-  };
-}
-
-const double = createMultiplier(2);
-const triple = createMultiplier(3);
-
-double(5);  // 10
-triple(5);  // 15</code></pre>
-      
-      <h3>Array Methods là Higher-Order Functions</h3>
-      <pre><code>const numbers = [1, 2, 3, 4, 5];
-
-// map là higher-order function
-const doubled = numbers.map(n => n * 2);
-
-// filter là higher-order function
-const evens = numbers.filter(n => n % 2 === 0);
-
-// reduce là higher-order function
-const sum = numbers.reduce((acc, n) => acc + n, 0);</code></pre>
-      
-      <h3>Tạo Higher-Order Function của riêng bạn</h3>
-      <pre><code>// Hàm tạo logger
-function withLogging(fn) {
-  return function(...args) {
-    console.log('Calling function with args:', args);
-    const result = fn(...args);
-    console.log('Result:', result);
-    return result;
-  };
-}
-
-const add = (a, b) => a + b;
-const loggedAdd = withLogging(add);
-
-loggedAdd(2, 3);
-// Output:
-// Calling function with args: [2, 3]
-// Result: 5</code></pre>
-      
-      <h3>Debounce Function</h3>
-      <pre><code>function debounce(fn, delay) {
-  let timeoutId;
-  return function(...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      fn.apply(this, args);
-    }, delay);
-  };
-}
-
-const searchInput = debounce((query) => {
-  console.log('Searching for:', query);
-}, 300);</code></pre>
-      
-      <h3>Compose Functions</h3>
-      <pre><code>function compose(...fns) {
-  return function(value) {
-    return fns.reduceRight((acc, fn) => fn(acc), value);
-  };
-}
+      <pre><code>// Composition
+const compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x);
 
 const addOne = x => x + 1;
-const multiplyByTwo = x => x * 2;
+const double = x => x * 2;
 const square = x => x * x;
 
-const transform = compose(square, multiplyByTwo, addOne);
-transform(3); // ((3 + 1) * 2)² = 64</code></pre>
-      
-      <h3>Currying</h3>
-      <pre><code>function curry(fn) {
+const transform = compose(square, double, addOne);
+console.log(transform(3)); // ((3 + 1) * 2)² = 64
+
+// Currying
+const curry = (fn) => {
   return function curried(...args) {
     if (args.length >= fn.length) {
       return fn.apply(this, args);
     } else {
-      return function(...nextArgs) {
-        return curried.apply(this, args.concat(nextArgs));
-      };
+      return (...nextArgs) => curried.apply(this, [...args, ...nextArgs]);
     }
+  };
+};
+
+const multiply = curry((a, b, c) => a * b * c);
+const multiplyBy2 = multiply(2);
+const multiplyBy2And3 = multiplyBy2(3);
+console.log(multiplyBy2And3(4)); // 24
+
+// Immutability
+const updateUser = (user, updates) => ({
+  ...user,
+  ...updates,
+  updatedAt: new Date()
+});
+
+const addToCart = (cart, item) => [...cart, item];
+const removeFromCart = (cart, itemId) => cart.filter(item => item.id !== itemId);</code></pre>
+      
+      <h4>4. Full-stack Development</h4>
+      <p>JavaScript là ngôn ngữ duy nhất cho phép bạn viết cả frontend và backend với cùng một ngôn ngữ:</p>
+      
+      <pre><code>// Backend (Node.js + Express)
+import express from 'express';
+const app = express();
+
+app.get('/api/users', async (req, res) => {
+  const users = await db.users.findAll();
+  res.json(users);
+});
+
+// Frontend (React)
+function UserList() {
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+    fetch('/api/users')
+      .then(r => r.json())
+      .then(setUsers);
+  }, []);
+  
+  return (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+// Shared validation logic
+export function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+// Dùng được cả frontend lẫn backend!</code></pre>
+      
+      <h3>Modern JavaScript Best Practices</h3>
+      
+      <h4>1. Sử dụng ES6+ features</h4>
+      <pre><code>// Destructuring
+const { name, email } = user;
+const [first, ...rest] = array;
+
+// Template literals
+const greeting = \`Hello, \${name}!\`;
+
+// Optional chaining
+const city = user?.address?.city;
+
+// Nullish coalescing
+const port = config.port ?? 3000;
+
+// Array methods
+const adultsNames = users
+  .filter(u => u.age >= 18)
+  .map(u => u.name)
+  .sort();</code></pre>
+      
+      <h4>2. Type Safety với TypeScript</h4>
+      <pre><code>interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: 'admin' | 'user';
+}
+
+function getUserById(id: number): Promise<User> {
+  return fetch(\`/api/users/\${id}\`).then(r => r.json());
+}
+
+// Type inference
+const numbers = [1, 2, 3]; // number[]
+const sum = numbers.reduce((a, b) => a + b, 0); // number</code></pre>
+      
+      <h4>3. Error Handling đúng cách</h4>
+      <pre><code>class ApplicationError extends Error {
+  constructor(message, statusCode = 500) {
+    super(message);
+    this.statusCode = statusCode;
+    this.name = this.constructor.name;
+  }
+}
+
+class ValidationError extends ApplicationError {
+  constructor(message) {
+    super(message, 400);
+  }
+}
+
+async function createUser(data) {
+  if (!data.email) {
+    throw new ValidationError('Email is required');
+  }
+  
+  try {
+    return await db.users.create(data);
+  } catch (error) {
+    if (error.code === 'DUPLICATE_EMAIL') {
+      throw new ValidationError('Email already exists');
+    }
+    throw new ApplicationError('Failed to create user');
+  }
+}</code></pre>
+      
+      <h4>4. Performance Optimization</h4>
+      <pre><code>// Debouncing
+function debounce(fn, delay) {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
   };
 }
 
-const add = (a, b, c) => a + b + c;
-const curriedAdd = curry(add);
+const searchInput = debounce((query) => {
+  fetch(\`/api/search?q=\${query}\`)
+    .then(r => r.json())
+    .then(updateResults);
+}, 300);
 
-curriedAdd(1)(2)(3);  // 6
-curriedAdd(1, 2)(3);  // 6
-curriedAdd(1)(2, 3); // 6</code></pre>
+// Memoization
+function memoize(fn) {
+  const cache = new Map();
+  return (...args) => {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) return cache.get(key);
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+}
+
+const fibonacci = memoize((n) => {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+});
+
+// Lazy loading
+const HeavyComponent = lazy(() => import('./HeavyComponent'));</code></pre>
       
-      <h3>Lợi ích</h3>
+      <h3>Khi nào JavaScript KHÔNG phải là lựa chọn tốt?</h3>
+      
+      <p>Hãy thành thật: JavaScript không phải là giải pháp cho mọi vấn đề:</p>
+      
+      <ol>
+        <li><strong>CPU-intensive tasks:</strong> Machine learning training, video encoding, scientific computing - nên dùng Python, C++, Rust</li>
+        <li><strong>System programming:</strong> OS kernels, drivers - dùng C, Rust</li>
+        <li><strong>Real-time systems:</strong> Trading platforms yêu cầu latency cực thấp - dùng C++, Java</li>
+        <li><strong>Memory-constrained environments:</strong> Embedded systems - dùng C, Assembly</li>
+      </ol>
+      
+      <h3>Kết luận: Vấn đề không phải ở JavaScript</h3>
+      
+      <p>JavaScript không phải là ngôn ngữ hoàn hảo, nhưng cũng không hề lỗi thời hay yếu kém. Những vấn đề mà nhiều người gặp phải thường xuất phát từ:</p>
+      
       <ul>
-        <li>Code tái sử dụng được</li>
-        <li>Dễ test và debug</li>
-        <li>Tăng tính linh hoạt</li>
-        <li>Code ngắn gọn và dễ đọc</li>
+        <li><strong>Thiếu hiểu biết về ngôn ngữ:</strong> Không biết về event loop, closures, prototypes...</li>
+        <li><strong>Không cập nhật kiến thức:</strong> Vẫn code theo kiểu ES5 trong khi ES2015+ đã ra mắt nhiều năm</li>
+        <li><strong>Không sử dụng công cụ phù hợp:</strong> Không dùng TypeScript, ESLint, Prettier...</li>
+        <li><strong>Bad practices:</strong> Không handle errors, callback hell, global variables...</li>
       </ul>
       
-      <p>Higher-order functions là nền tảng của functional programming và giúp bạn viết code JavaScript tốt hơn.</p>
+      <p>JavaScript đang chạy trên hàng tỷ thiết bị, từ websites, servers, mobile apps, desktop apps đến IoT devices. Các công ty lớn như Google, Facebook, Netflix, Microsoft đều sử dụng JavaScript cho các sản phẩm quan trọng.</p>
+      
+      <p>Vậy nên, trước khi nói JavaScript lỗi thời, hãy tự hỏi: "Mình đã thực sự hiểu và sử dụng JavaScript đúng cách chưa?"</p>
+      
+      <p><strong>JavaScript không yếu kém - chỉ có lập trình viên yếu kém trong việc sử dụng nó!</strong></p>
     `,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
-    date: "2024-02-15",
+    image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c8db35?w=800&h=400&fit=crop",
+    date: "2024-12-20",
     category: "JavaScript"
   },
   {
-    id: 8,
-    title: "Event Loop và Concurrency trong JavaScript",
-    excerpt: "Tìm hiểu cách JavaScript xử lý các thao tác bất đồng bộ thông qua Event Loop và cách nó quản lý concurrency...",
+    id: 3,
+    title: "AI, Chìa khóa của sự hiệu quả hay là ảo tưởng của nhà tuyển dụng",
+    excerpt: "AI đang thay đổi ngành công nghệ, nhưng liệu các công cụ AI có thực sự mang lại hiệu quả như nhà tuyển dụng kỳ vọng? Hay đây chỉ là một trend hype...",
     content: `
-      <h2>Event Loop và Concurrency trong JavaScript</h2>
-      <p>JavaScript là một ngôn ngữ single-threaded, nhưng nó có thể xử lý các thao tác bất đồng bộ thông qua Event Loop. Hiểu rõ Event Loop sẽ giúp bạn viết code hiệu quả hơn.</p>
+      <h2>AI, Chìa khóa của sự hiệu quả hay là ảo tưởng của nhà tuyển dụng</h2>
       
-      <h3>JavaScript Runtime</h3>
-      <p>JavaScript runtime bao gồm:</p>
-      <ul>
-        <li><strong>Call Stack</strong>: Nơi các hàm được thực thi</li>
-        <li><strong>Heap</strong>: Nơi lưu trữ objects</li>
-        <li><strong>Callback Queue</strong>: Hàng đợi các callback</li>
-        <li><strong>Event Loop</strong>: Quản lý việc chuyển callback từ queue sang stack</li>
-      </ul>
+      <h3>Giới thiệu</h3>
+      <p>Những năm gần đây, AI (Artificial Intelligence) đã trở thành buzzword trong ngành công nghệ. Nhiều nhà tuyển dụng yêu cầu ứng viên phải có kinh nghiệm với AI, ChatGPT, GitHub Copilot... Nhưng liệu AI có thực sự là "chìa khóa của sự hiệu quả" như nhiều người nghĩ, hay chỉ là một ảo tưởng được thổi phồng?</p>
       
-      <h3>Cách Event Loop hoạt động</h3>
-      <pre><code>console.log('1');
-
-setTimeout(() => {
-  console.log('2');
-}, 0);
-
-Promise.resolve().then(() => {
-  console.log('3');
-});
-
-console.log('4');
-
-// Output: 1, 4, 3, 2</code></pre>
+      <h3>Kỳ vọng của nhà tuyển dụng vs Thực tế</h3>
       
-      <h3>Call Stack</h3>
-      <p>Call Stack là nơi JavaScript theo dõi các hàm đang được thực thi:</p>
-      <pre><code>function first() {
-  console.log('First');
-  second();
+      <h4>Kỳ vọng: "AI sẽ thay thế lập trình viên"</h4>
+      <p>Nhiều nhà tuyển dụng tin rằng với AI, họ có thể thuê ít lập trình viên hơn vì AI có thể viết code.</p>
+      
+      <p><strong>Thực tế:</strong> AI có thể tạo code, nhưng không thể thay thế tư duy lập trình. Xem ví dụ:</p>
+      
+      <pre><code>// Prompt cho AI: "Tạo function tính fibonacci"
+// AI output (thường thấy):
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-function second() {
-  console.log('Second');
-  third();
+// Vấn đề: Time complexity O(2^n) - cực kỳ chậm!
+// fibonacci(40) sẽ mất vài giây
+
+// Lập trình viên giỏi sẽ biết optimize:
+function fibonacci(n) {
+  const memo = new Map();
+  
+  function fib(num) {
+    if (num <= 1) return num;
+    if (memo.has(num)) return memo.get(num);
+    
+    const result = fib(num - 1) + fib(num - 2);
+    memo.set(num, result);
+    return result;
+  }
+  
+  return fib(n);
 }
 
-function third() {
-  console.log('Third');
+// Hoặc dùng iteration:
+function fibonacci(n) {
+  if (n <= 1) return n;
+  let prev = 0, curr = 1;
+  for (let i = 2; i <= n; i++) {
+    [prev, curr] = [curr, prev + curr];
+  }
+  return curr;
 }
-
-first();
-// Call stack: first -> second -> third</code></pre>
+// Time complexity: O(n) - nhanh hơn exponentially!</code></pre>
       
-      <h3>Web APIs và Callback Queue</h3>
-      <pre><code>console.log('Start');
+      <h4>Kỳ vọng: "Junior developer + AI = Senior developer"</h4>
+      <p>Nhiều công ty nghĩ rằng junior dev với AI có thể làm việc của senior dev.</p>
+      
+      <p><strong>Thực tế:</strong> AI chỉ hiệu quả khi người dùng biết đặt câu hỏi đúng và đánh giá kết quả. Điều này cần kinh nghiệm:</p>
+      
+      <pre><code>// Junior dev hỏi AI: "Fix this bug"
+// AI có thể đưa ra giải pháp quick fix
 
-setTimeout(() => {
-  console.log('Timeout');
-}, 1000);
+// Senior dev hỏi AI:
+// "Analyze the root cause of this race condition in our 
+// asynchronous data fetching logic. Consider:
+// - Event loop behavior
+// - State management timing
+// - Potential memory leaks
+// - Edge cases in error handling"
 
-fetch('/api/data')
-  .then(() => {
-    console.log('Fetch');
+// Kết quả: Senior dev biết hỏi đúng vấn đề, junior dev chỉ fix triệu chứng</code></pre>
+      
+      <h3>Khi nào AI thực sự hữu ích?</h3>
+      
+      <h4>1. Boilerplate Code Generation</h4>
+      <p>AI xuất sắc trong việc tạo code lặp đi lặp lại:</p>
+      
+      <pre><code>// Tạo CRUD operations
+// Prompt: "Create REST API endpoints for User model with validation"
+
+// AI có thể tạo:
+const express = require('express');
+const router = express.Router();
+const { body, validationResult } = require('express-validator');
+
+// CREATE
+router.post('/users',
+  [
+    body('email').isEmail(),
+    body('name').notEmpty(),
+    body('password').isLength({ min: 8 })
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    
+    try {
+      const user = await User.create(req.body);
+      res.status(201).json(user);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+);
+
+// READ, UPDATE, DELETE tương tự...
+// Giúp tiết kiệm 30-60 phút cho boilerplate</code></pre>
+      
+      <h4>2. Code Explanation và Documentation</h4>
+      <p>AI rất tốt trong việc giải thích code phức tạp:</p>
+      
+      <pre><code>// Complex regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Hỏi AI: "Explain this regex"
+// AI output: "This regex validates email addresses:
+// ^ - Start of string
+// [^\s@]+ - One or more characters that are not whitespace or @
+// @ - Literal @ symbol
+// [^\s@]+ - One or more characters that are not whitespace or @
+// \. - Literal dot
+// [^\s@]+ - One or more characters that are not whitespace or @
+// $ - End of string"
+
+// Rất hữu ích cho code review và onboarding!</code></pre>
+      
+      <h4>3. Testing và Edge Cases</h4>
+      <p>AI có thể gợi ý test cases mà bạn chưa nghĩ tới:</p>
+      
+      <pre><code>function divide(a, b) {
+  return a / b;
+}
+
+// Hỏi AI: "What edge cases should I test?"
+// AI suggests:
+describe('divide', () => {
+  test('normal division', () => {
+    expect(divide(10, 2)).toBe(5);
   });
-
-console.log('End');
-
-// Output:
-// Start
-// End
-// Fetch (khi Promise resolve)
-// Timeout (sau 1 giây)</code></pre>
-      
-      <h3>Microtasks và Macrotasks</h3>
-      <p>JavaScript có hai loại task queue:</p>
-      <ul>
-        <li><strong>Microtasks</strong>: Promise callbacks, queueMicrotask()</li>
-        <li><strong>Macrotasks</strong>: setTimeout, setInterval, I/O operations</li>
-      </ul>
-      
-      <pre><code>console.log('1');
-
-setTimeout(() => console.log('2'), 0);
-
-Promise.resolve().then(() => {
-  console.log('3');
-  return Promise.resolve();
-}).then(() => {
-  console.log('4');
+  
+  test('division by zero', () => {
+    expect(divide(10, 0)).toBe(Infinity);
+  });
+  
+  test('negative numbers', () => {
+    expect(divide(-10, 2)).toBe(-5);
+  });
+  
+  test('floating point', () => {
+    expect(divide(10, 3)).toBeCloseTo(3.333, 2);
+  });
+  
+  test('very large numbers', () => {
+    expect(divide(Number.MAX_VALUE, 2)).toBeLessThan(Infinity);
+  });
+  
+  test('very small numbers', () => {
+    expect(divide(Number.MIN_VALUE, 2)).toBeGreaterThan(0);
+  });
 });
 
-console.log('5');
-
-// Output: 1, 5, 3, 4, 2
-// Microtasks được ưu tiên hơn macrotasks</code></pre>
+// AI nghĩ ra cases mà dev có thể bỏ qua!</code></pre>
       
-      <h3>Blocking Event Loop</h3>
-      <pre><code>// Code này sẽ block event loop
-function blockingFunction() {
-  const start = Date.now();
-  while (Date.now() - start < 5000) {
-    // Chờ 5 giây
+      <h4>4. Learning và Research</h4>
+      <p>AI là giáo viên 24/7 kiên nhẫn:</p>
+      
+      <pre><code>// Học khái niệm mới
+// "Explain closures in JavaScript with practical examples"
+
+// "How does the event loop work in Node.js?"
+
+// "What's the difference between Promise.all() and Promise.allSettled()?"
+
+// AI có thể giải thích ngay lập tức với examples
+// Tiết kiệm thời gian Google và đọc documentation</code></pre>
+      
+      <h3>Hạn chế nghiêm trọng của AI</h3>
+      
+      <h4>1. Không hiểu Context nghiệp vụ</h4>
+      <pre><code>// Yêu cầu: "Create a payment processing function"
+// AI tạo function generic:
+
+async function processPayment(amount, cardInfo) {
+  // Validate card
+  if (!isValidCard(cardInfo)) {
+    throw new Error('Invalid card');
   }
+  
+  // Process payment
+  const result = await paymentGateway.charge(amount, cardInfo);
+  return result;
 }
 
-console.log('Before');
-blockingFunction();
-console.log('After');
-// UI sẽ bị đơ trong 5 giây</code></pre>
+// Nhưng AI KHÔNG BIẾT:
+// - Có cần PCI compliance không?
+// - Có cần 3D Secure không?
+// - Xử lý multiple currencies thế nào?
+// - Retry logic khi payment gateway down?
+// - Fraud detection?
+// - Tax calculation theo từng quốc gia?
+// - Refund workflow?
+
+// Đây là domain knowledge mà chỉ con người mới có!</code></pre>
       
-      <h3>Giải pháp: Chia nhỏ công việc</h3>
-      <pre><code>function processChunk(array, index = 0) {
-  const chunkSize = 100;
-  const end = Math.min(index + chunkSize, array.length);
+      <h4>2. Security Vulnerabilities</h4>
+      <pre><code>// AI thường tạo code không an toàn:
+
+// Prompt: "Create login endpoint"
+// AI output:
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  const user = await db.query(
+    \`SELECT * FROM users WHERE username = '\${username}' AND password = '\${password}'\`
+  );
   
-  for (let i = index; i < end; i++) {
-    // Xử lý phần tử
-    processItem(array[i]);
+  if (user) {
+    res.json({ token: createToken(user) });
   }
-  
-  if (end < array.length) {
-    // Chuyển sang chunk tiếp theo
-    setTimeout(() => {
-      processChunk(array, end);
-    }, 0);
+});
+
+// SECURITY ISSUES:
+// 1. SQL Injection vulnerability!!!
+// 2. Passwords stored in plain text!!!
+// 3. No rate limiting
+// 4. No input sanitization
+// 5. Token creation might be weak
+
+// Proper implementation:
+app.post('/login', 
+  rateLimit({ windowMs: 15 * 60 * 1000, max: 5 }),
+  async (req, res) => {
+    const { username, password } = req.body;
+    
+    // Input validation
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Missing credentials' });
+    }
+    
+    // Parameterized query (prevents SQL injection)
+    const user = await db.query(
+      'SELECT * FROM users WHERE username = ?',
+      [username]
+    );
+    
+    if (!user) {
+      // Don't reveal if user exists
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+    
+    // Compare hashed passwords
+    const validPassword = await bcrypt.compare(password, user.passwordHash);
+    
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+    
+    // Create secure JWT token
+    const token = jwt.sign(
+      { userId: user.id },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+    
+    res.json({ token });
   }
-}</code></pre>
+);</code></pre>
       
-      <h3>Async/Await và Event Loop</h3>
-      <pre><code>async function example() {
-  console.log('1');
-  
-  await Promise.resolve();
-  console.log('2');
-  
-  await new Promise(resolve => setTimeout(resolve, 0));
-  console.log('3');
+      <h4>3. Hallucinations và Outdated Information</h4>
+      <pre><code>// AI có thể tạo ra code với APIs không tồn tại:
+
+// Prompt: "Use latest React 18 features"
+// AI có thể generate:
+import { useSuperState } from 'react'; // Không tồn tại!
+
+function Component() {
+  const [state] = useSuperState(); // Fake API!
+  // ...
 }
 
-example();
-console.log('4');
+// Hoặc dùng deprecated APIs:
+componentWillMount() { // Deprecated in React 16.3!
+  // ...
+}
 
-// Output: 1, 4, 2, 3</code></pre>
+// Lập trình viên phải biết để kiểm tra!</code></pre>
       
-      <h3>Best Practices</h3>
+      <h4>4. Performance Issues</h4>
+      <pre><code>// AI thường không optimize performance
+
+// Prompt: "Get user posts with comments"
+// AI output:
+async function getUserPostsWithComments(userId) {
+  const posts = await db.posts.findAll({ userId });
+  
+  for (const post of posts) {
+    post.comments = await db.comments.findAll({ postId: post.id });
+  }
+  
+  return posts;
+}
+
+// Vấn đề: N+1 query problem!
+// Với 100 posts, sẽ có 101 queries!
+
+// Optimized version:
+async function getUserPostsWithComments(userId) {
+  const posts = await db.posts.findAll({
+    where: { userId },
+    include: [{
+      model: db.comments
+    }]
+  });
+  
+  return posts;
+}
+
+// Chỉ 1 query! Senior dev sẽ nhận ra ngay.</code></pre>
+      
+      <h3>Cách sử dụng AI hiệu quả</h3>
+      
+      <h4>1. AI là trợ lý, không phải thay thế</h4>
+      <pre><code>// Workflow hiệu quả:
+
+// Bước 1: Tự thiết kế architecture
+// - Database schema
+// - API endpoints
+// - Data flow
+// - Security requirements
+
+// Bước 2: Dùng AI cho implementation details
+// - Boilerplate code
+// - Helper functions
+// - Test cases
+// - Documentation
+
+// Bước 3: Review và optimize AI code
+// - Security
+// - Performance  
+// - Edge cases
+// - Best practices
+
+// Bước 4: Manual testing
+// - Integration testing
+// - Load testing
+// - Security testing</code></pre>
+      
+      <h4>2. Prompt Engineering</h4>
+      <pre><code>// Bad prompt:
+"Create a function to sort array"
+
+// Good prompt:
+"Create a TypeScript function that sorts an array of objects by a 
+specified property name. Requirements:
+- Generic type support
+- Handle nested properties (e.g., 'user.name')
+- Support ascending/descending order
+- Handle null/undefined values
+- Include JSDoc documentation
+- Include unit tests"
+
+// Kết quả tốt hơn rất nhiều!</code></pre>
+      
+      <h4>3. Verify Everything</h4>
+      <pre><code>// Checklist khi dùng AI-generated code:
+const aiCodeChecklist = {
+  security: [
+    'SQL injection prevention?',
+    'XSS prevention?',
+    'CSRF protection?',
+    'Input validation?',
+    'Authentication/Authorization?'
+  ],
+  performance: [
+    'Time complexity acceptable?',
+    'Memory usage reasonable?',
+    'Database queries optimized?',
+    'Caching implemented if needed?'
+  ],
+  quality: [
+    'Error handling complete?',
+    'Edge cases covered?',
+    'Code readable and maintainable?',
+    'Tests included?',
+    'Documentation clear?'
+  ],
+  correctness: [
+    'Actually solves the problem?',
+    'APIs exist and are current?',
+    'Dependencies compatible?',
+    'Works with existing codebase?'
+  ]
+};</code></pre>
+      
+      <h3>Tương lai của AI trong lập trình</h3>
+      
+      <h4>AI sẽ tốt hơn ở:</h4>
       <ul>
-        <li>Tránh blocking event loop với các thao tác đồng bộ nặng</li>
-        <li>Sử dụng Web Workers cho các tác vụ CPU-intensive</li>
-        <li>Chia nhỏ công việc lớn thành các chunk nhỏ</li>
-        <li>Hiểu rõ thứ tự thực thi của microtasks và macrotasks</li>
+        <li>Code generation và refactoring</li>
+        <li>Bug detection và fixing</li>
+        <li>Test generation</li>
+        <li>Documentation tự động</li>
+        <li>Code review assistance</li>
       </ul>
       
-      <p>Hiểu rõ Event Loop sẽ giúp bạn viết code JavaScript hiệu quả và tránh các vấn đề về performance.</p>
-    `,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
-    date: "2024-02-20",
-    category: "JavaScript"
-  },
-  {
-    id: 9,
-    title: "Modules trong JavaScript: ES6 Modules và CommonJS",
-    excerpt: "Tìm hiểu về hệ thống module trong JavaScript, cách sử dụng ES6 modules và sự khác biệt với CommonJS...",
-    content: `
-      <h2>Modules trong JavaScript</h2>
-      <p>Modules giúp bạn tổ chức code thành các file riêng biệt, dễ quản lý và tái sử dụng. JavaScript có hai hệ thống module chính: ES6 Modules và CommonJS.</p>
-      
-      <h3>ES6 Modules (ESM)</h3>
-      <p>ES6 Modules là tiêu chuẩn hiện đại cho việc import/export trong JavaScript.</p>
-      
-      <h4>Export</h4>
-      <pre><code>// Named exports
-export const PI = 3.14159;
-export function add(a, b) {
-  return a + b;
-}
-
-// Default export
-export default function multiply(a, b) {
-  return a * b;
-}
-
-// Export tất cả
-export { add, multiply };</code></pre>
-      
-      <h4>Import</h4>
-      <pre><code>// Named imports
-import { add, PI } from './math.js';
-
-// Default import
-import multiply from './math.js';
-
-// Import tất cả
-import * as math from './math.js';
-
-// Rename imports
-import { add as sum } from './math.js';</code></pre>
-      
-      <h3>CommonJS</h3>
-      <p>CommonJS là hệ thống module được sử dụng trong Node.js.</p>
-      
-      <pre><code>// Export
-module.exports = {
-  add: (a, b) => a + b,
-  subtract: (a, b) => a - b
-};
-
-// Hoặc
-exports.add = (a, b) => a + b;
-exports.subtract = (a, b) => a - b;
-
-// Import
-const math = require('./math.js');
-const { add, subtract } = require('./math.js');</code></pre>
-      
-      <h3>So sánh ES6 Modules vs CommonJS</h3>
-      <table>
-        <tr>
-          <th>Tính năng</th>
-          <th>ES6 Modules</th>
-          <th>CommonJS</th>
-        </tr>
-        <tr>
-          <td>Load time</td>
-          <td>Static (compile time)</td>
-          <td>Dynamic (runtime)</td>
-        </tr>
-        <tr>
-          <td>Tree shaking</td>
-          <td>Hỗ trợ</td>
-          <td>Không hỗ trợ</td>
-        </tr>
-        <tr>
-          <td>Browser support</td>
-          <td>Native</td>
-          <td>Cần bundler</td>
-        </tr>
-        <tr>
-          <td>Top-level await</td>
-          <td>Hỗ trợ</td>
-          <td>Không hỗ trợ</td>
-        </tr>
-      </table>
-      
-      <h3>Dynamic Imports</h3>
-      <pre><code>// Lazy loading với dynamic import
-async function loadModule() {
-  const module = await import('./math.js');
-  module.add(1, 2);
-}
-
-// Conditional import
-if (condition) {
-  const utils = await import('./utils.js');
-}</code></pre>
-      
-      <h3>Re-exporting</h3>
-      <pre><code>// Re-export từ module khác
-export { add, subtract } from './math.js';
-export { default } from './math.js';
-
-// Re-export với rename
-export { add as sum } from './math.js';</code></pre>
-      
-      <h3>Module Scope</h3>
-      <pre><code>// Mỗi module có scope riêng
-const privateVariable = 'private';
-
-export function publicFunction() {
-  return privateVariable;
-}
-
-// privateVariable không thể truy cập từ bên ngoài</code></pre>
-      
-      <h3>Circular Dependencies</h3>
-      <pre><code>// fileA.js
-import { funcB } from './fileB.js';
-export function funcA() {
-  return funcB();
-}
-
-// fileB.js
-import { funcA } from './fileA.js';
-export function funcB() {
-  return funcA();
-}
-
-// Cần cẩn thận với circular dependencies</code></pre>
-      
-      <h3>Best Practices</h3>
+      <h4>Con người vẫn cần thiết cho:</h4>
       <ul>
-        <li>Sử dụng ES6 Modules cho các dự án mới</li>
-        <li>Tránh circular dependencies</li>
-        <li>Sử dụng named exports thay vì default exports khi có thể</li>
-        <li>Nhóm các exports liên quan lại với nhau</li>
-        <li>Sử dụng dynamic imports cho code splitting</li>
+        <li>System design và architecture</li>
+        <li>Business logic và domain knowledge</li>
+        <li>Security và compliance</li>
+        <li>Performance optimization</li>
+        <li>User experience design</li>
+        <li>Ethical decisions</li>
+        <li>Innovation và creativity</li>
       </ul>
       
-      <p>Modules là cách tốt nhất để tổ chức code JavaScript và tạo ra các ứng dụng có thể mở rộng.</p>
+      <h3>Lời khuyên cho developers</h3>
+      
+      <ol>
+        <li><strong>Học fundamentals vững:</strong> AI không thể thay thế hiểu biết cơ bản về algorithms, data structures, design patterns...</li>
+        
+        <li><strong>Đừng phụ thuộc hoàn toàn vào AI:</strong> Sử dụng AI như một công cụ, không phải cái nạng.</li>
+        
+        <li><strong>Critical thinking:</strong> Luôn đặt câu hỏi "Tại sao?" với code AI tạo ra.</li>
+        
+        <li><strong>Keep learning:</strong> AI tools thay đổi nhanh, hãy cập nhật liên tục.</li>
+        
+        <li><strong>Focus on problem-solving:</strong> AI có thể viết code, nhưng không thể định nghĩa vấn đề và tìm giải pháp tốt nhất.</li>
+      </ol>
+      
+      <h3>Kết luận</h3>
+      
+      <p>AI không phải là "chìa khóa kỳ diệu" cũng không phải là "ảo tưởng hoàn toàn". Nó là một công cụ mạnh mẽ khi được sử dụng đúng cách bởi những người có kiến thức và kinh nghiệm.</p>
+      
+      <p>Nhà tuyển dụng cần hiểu rằng:</p>
+      <ul>
+        <li>AI không thể thay thế lập trình viên giỏi</li>
+        <li>Junior dev + AI ≠ Senior dev</li>
+        <li>AI cần được giám sát và kiểm tra kỹ lưỡng</li>
+        <li>Domain knowledge và critical thinking vẫn là quan trọng nhất</li>
+      </ul>
+      
+      <p>Developers cần hiểu rằng:</p>
+      <ul>
+        <li>AI là công cụ tăng năng suất, không phải thay thế</li>
+        <li>Fundamentals vẫn là nền tảng quan trọng nhất</li>
+        <li>Critical thinking và problem-solving là kỹ năng không thể thay thế</li>
+        <li>AI làm cho lập trình viên giỏi trở nên xuất sắc hơn, nhưng không thể biến người yếu thành người giỏi</li>
+      </ul>
+      
+      <p><strong>AI là amplifier (bộ khuếch đại), không phải replacement (sự thay thế). Nó khuếch đại khả năng của bạn - nếu bạn giỏi, bạn sẽ trở nên xuất sắc. Nếu bạn yếu, AI chỉ giúp bạn tạo ra bugs nhanh hơn!</strong></p>
     `,
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
-    date: "2024-02-25",
-    category: "JavaScript"
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+    date: "2024-12-25",
+    category: "AI & Technology"
   }
 ];
-
