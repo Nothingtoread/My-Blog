@@ -259,7 +259,7 @@ hero.attackTarget(enemy);</code></pre>
       
       <p>Khi bạn nắm vững OOP, bạn sẽ thấy rằng việc học các ngôn ngữ lập trình mới, framework mới, hoặc giải quyết các vấn đề phức tạp trở nên dễ dàng hơn rất nhiều. OOP thực sự là cánh cửa mở ra thế giới lập trình chuyên nghiệp!</p>
     `,
-    image: "/images/javascript-blog.jpg",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     date: "2024-12-15",
     category: "Programming Fundamentals"
   },
@@ -1046,7 +1046,7 @@ const aiCodeChecklist = {
       
       <p><strong>AI là amplifier (bộ khuếch đại), không phải replacement (sự thay thế). Nó khuếch đại khả năng của bạn - nếu bạn giỏi, bạn sẽ trở nên xuất sắc. Nếu bạn yếu, AI chỉ giúp bạn tạo ra bugs nhanh hơn!</strong></p>
     `,
-    image: "/images/javascript-blog.jpg",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
     date: "2024-12-25",
     category: "AI & Technology"
   }
